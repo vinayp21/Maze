@@ -1,25 +1,13 @@
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import Maze from "./Maze";
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
-}
+const rows = parseInt(prompt("Enter number of rows"));
+const columns = parseInt(prompt("Enter number of columns"));
+const App = () => {
+  if (!rows || !columns) {
+    return "Please enter valid number for both rows and columns";
+  }
+  return <Maze rows={rows} columns={columns} />;
+};
 
 export default App;
