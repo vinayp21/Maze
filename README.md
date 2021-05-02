@@ -1,6 +1,7 @@
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Expected Node version ">= 10.14.2".
 
 ## Available Scripts
 
