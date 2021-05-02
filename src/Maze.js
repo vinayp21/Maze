@@ -18,7 +18,7 @@ const Maze = ({ rows, columns }) => {
     const centerNumber =
       (Math.ceil(columns / 2) - 1) * rows + Math.ceil(rows / 2);
     const randomData = [];
-    while (randomData.length < 10) {
+    while (randomData.length < rows) {
       var random = Math.floor(Math.random() * size) + 1;
       if (
         randomData.indexOf(random) === -1 &&
