@@ -6,7 +6,7 @@
   justify-content: center;
   align-items: center;
 }
-.roww {
+.row {
   display: flex;
   flex-direction: row;
 }

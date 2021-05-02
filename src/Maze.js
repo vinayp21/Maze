@@ -106,7 +106,7 @@ const Maze = ({ rows, columns }) => {
         ></div>
       ))}
       {[...Array(columns)].map((data1, i) => (
-        <div key={i} className="roww">
+        <div key={i} className="row">
           {[...Array(rows)].map((data2, j) => {
             return (
               <div key={j}>
