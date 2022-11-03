@@ -2,6 +2,7 @@ import React, { useState, useEffect, useRef } from "react";
 import "./App.css";
 const Maze = ({ rows, columns }) => {
   const [sprites, setSprites] = useState([]);
+  const [player, setPlayer] = useState([]);
   const [top, setTop] = useState(10);
   const [left, setLeft] = useState(10);
   const leftRef = useRef(left);
@@ -40,8 +41,19 @@ const Maze = ({ rows, columns }) => {
     setSprites(sprites);
     updateSprite.current = sprites;
     document.addEventListener("keyup", onKeyUp);
+    setPlayer([{ top: midTop, left: midLeft }]);
+
     // eslint-disable-next-line
   }, []);
+  useEffect(() => {
+    console.log(sprites.length, top, left);
+    if (sprites.length < 10) {
+      setPlayer([...player, { top: top, left: left }]);
+    }
+  }, [sprites.length]);
+  useEffect(() => {
+    console.log(top, left);
+  }, [top, left]);
 
   let pcount = 0;
   const onKeyUp = ({ key }) => {
@@ -86,6 +98,7 @@ const Maze = ({ rows, columns }) => {
         key === "ArrowRight")
     ) {
       pcount++;
+      // addPlayer();
     }
     if (updateSprite.current.length === 0) {
       setTimeout(() => {
@@ -98,6 +111,12 @@ const Maze = ({ rows, columns }) => {
   return (
     <div>
       <div className="player" style={style}></div>
+      {player.map(plist => (
+        <div
+          className="player"
+          style={{ top: plist.top, left: plist.left }}
+        ></div>
+      ))}
       {sprites.map(style => (
         <div
           key={`${style.top}-${style.left}`}
